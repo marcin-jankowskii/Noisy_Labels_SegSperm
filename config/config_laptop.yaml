@@ -1,0 +1,5 @@
+dataset_path: /home/nitro/Studia/Praca Dyplomowa/noisy_labels/Dataset/SegSperm
+save_model_path: /home/nitro/Studia/Praca Dyplomowa/Modele i dane
+save_inf_fig_path: /home/nitro/Studia/Praca Dyplomowa/noisy_labels/Kod/results
+image_height: 512
+image_width: 512

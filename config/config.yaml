@@ -1,0 +1,6 @@
+
+dataset_path: /media/marcin/Dysk lokalny/Programowanie/Python/Magisterka/Praca Dyplomowa/noisy_labels/Dataset/SegSperm
+save_model_path: /media/marcin/Dysk lokalny/Programowanie/Python/Magisterka/Praca Dyplomowa/Modele i dane
+save_inf_fig_path: /home/marcin/Dokumenty/results
+image_height: 512
+image_width: 512

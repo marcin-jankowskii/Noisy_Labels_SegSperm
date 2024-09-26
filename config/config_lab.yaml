@@ -1,0 +1,7 @@
+
+dataset_path: /media/marcin/463C6E583C6E42D3/Projects/noisy_labels/Dataset/SegSperm
+save_model_path: /media/marcin/463C6E583C6E42D3/Projects/noisy_labels_data/model
+save_inf_fig_path: /media/marcin/463C6E583C6E42D3/Projects/noisy_labels/Kod/results
+save_soft_mask_path: /media/marcin/463C6E583C6E42D3/Projects/noisy_labels_data/softmasks
+image_height: 512
+image_width: 512
