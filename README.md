@@ -13,56 +13,6 @@ Ten projekt stanowi rozwiązanie do segmentacji obrazów mikroskopowych opracowa
 - **gui.py** - plik odpowiedzialny za graficzny interfejs użytkownika (GUI) do trenowania modeli i inferencji.
 - **gui_predict.py** - GUI do przeprowadzania predykcji z dynamicznym ustawianiem progów i obsługą danych referencyjnych (ground truth).
 
-## Sposób użycia
-
-### Trenowanie modelu
-
-Aby wytrenować model, należy użyć pliku `train.py`. Skrypt umożliwia konfigurację parametrów treningu za pomocą argumentów wiersza poleceń, takich jak liczba epok, model, funkcja straty oraz tryb augmentacji. Przykładowa komenda:
-
-```bash
-python train.py --epochs 300 --batch_size 6 --lr 0.001 --annotator 1 --model smpUNet++ --augmentation --loss CrossEntropyLoss --optimizer Adam --scheduler CosineAnnealingLR --place lab --mode two_task_training(4) --k 5
-```
-
-### Inferencja
-
-Aby przeprowadzić inferencję, użyj skryptu `inference.py`, który wczytuje wytrenowany model oraz dane wejściowe na podstawie konfiguracji określonej w pliku `config.yaml`. Przykładowa komenda:
-
-```bash
-python inference.py --model model.pth --batch_size 1 --mode cascade_con --annotator 2
-```
-
-### Kluczowe moduły
-
-- **data.py**: Przetwarza dane wejściowe i tworzy tensory z obrazów oraz maski, obsługując tryby agregacji etykiet (mean voting, majority voting, intersection).
-- **metrics.py**: Oblicza kluczowe metryki oceniające jakość segmentacji: IoU oraz AP.
-- **gui.py**: Aplikacja GUI umożliwia użytkownikowi trenowanie modeli i przeprowadzanie inferencji. Wyniki wyświetlane są na bieżąco w oknie logów.
-- **gui_predict.py**: Umożliwia dynamiczną regulację progów dla różnych klas i porównywanie wyników predykcji z danymi referencyjnymi (ground truth).
-
-## Wymagania systemowe
-
-- Python 3.8 lub nowszy
-- Biblioteki zewnętrzne:
-  - `opencv-python`
-  - `torch`
-  - `torchvision`
-  - `numpy`
-  - `matplotlib`
-  - `wandb`
-  - `scikit-learn`
-  - `Pillow`
-  - `PyQt5`
-  - `segmentation-models-pytorch`
-  - `pandas`
-  - `kornia`
-  - `numba`
-  - `natsort`
-  - `scipy`
-
-Aby zainstalować wymagane zależności:
-
-```bash
-pip install opencv-python torch torchvision numpy matplotlib wandb scikit-learn Pillow PyQt5 segmentation-models-pytorch pandas kornia numba natsort scipy
-```
 
 ## Sposób użycia
 
@@ -70,13 +20,16 @@ pip install opencv-python torch torchvision numpy matplotlib wandb scikit-learn 
 
 Aby wytrenować model, należy użyć pliku train.py. Skrypt umożliwia konfigurację parametrów treningu za pomocą argumentów wiersza poleceń, takich jak liczba epok, model, funkcja straty oraz tryb augmentacji. Przykładowa komenda:
 
+```bash
 python train.py --epochs 300 --batch_size 6 --lr 0.001 --annotator 1 --model smpUNet++ --augmentation --loss CrossEntropyLoss --optimizer Adam --scheduler CosineAnnealingLR --place lab --mode two_task_training(4) --k 5
+```
 
 ### Inferencja
 
 Aby przeprowadzić inferencję, użyj skryptu inference.py, który wczytuje wytrenowany model oraz dane wejściowe na podstawie konfiguracji określonej w pliku config.yaml. Przykładowa komenda:
-
-python inference.py --model model.pth --batch_size 1 --mode cascade_con --annotator 2
+```bash
+python inference.py --model model.pth --batch_size 1 --mode two_task_training(4) --annotator 1
+```
 
 ### Kluczowe Moduły
 
@@ -115,6 +68,8 @@ python inference.py --model model.pth --batch_size 1 --mode cascade_con --annota
 
 Wszystkie te biblioteki można zainstalować za pomocą poniższej komendy:
 
+```bash
 pip install opencv-python torch torchvision numpy matplotlib wandb scikit-learn Pillow PyQt5 segmentation-models-pytorch pandas kornia numba natsort scipy
+```
 
 
