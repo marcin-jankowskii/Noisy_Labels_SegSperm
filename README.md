@@ -1,7 +1,13 @@
 
-# Narzędzie do Segmentacji Obrazów Mikroskopowych
+# Projekt Segmentacji Plemników oparty o Pracę Magisterską: "Uczenie w przypadku niepewnej wiedzy eksperckiej przejawiającej się poprzez zaszumione etykiety w aplikacji segmentacji obrazów medycznych"
 
-Ten projekt stanowi rozwiązanie do segmentacji obrazów mikroskopowych opracowane z użyciem biblioteki PyTorch. Projekt jest przystosowany do pracy z danymi zawierającymi zaszumione etykiety, oferując zarówno funkcjonalność trenowania modeli, jak i inferencji.
+Ten projekt stanowi rozwiązanie do segmentacji obrazów plemników z uwzględnieniem problemu zaszumionych etykiet. Projekt wykorzystuje bibliotekę PyTorch i oferuje zarówno funkcjonalności trenowania modeli, jak i inferencji z dynamicznym dostosowaniem parametrów.
+
+# O pracy magisterskiej
+
+Praca magisterska skupia się na problemie zaszumionych etykiet, które powstają na skutek subiektywnych decyzji ekspertów podczas anotacji obrazów medycznych, w tym obrazów plemników. Celem projektu było opracowanie technik umożliwiających skuteczną segmentację w obecności niepewnych etykiet, co jest szczególnie istotne w przypadku takich procedur medycznych jak docytoplazmatyczna iniekcja plemnika (ICSI). W pracy opracowano narzędzia do łączenia wyników wielu adnotatorów oraz zaawansowane metody augmentacji danych, aby poprawić jakość segmentacji plemników w obrazach mikroskopowych. Segmentacja ta pozwala na zmniejszenie subiektywności oceny embriologów i wspomaga ich w codziennej pracy, zwiększając precyzję diagnostyczną.
+
+
 
 ## Struktura projektu
 
@@ -44,7 +50,6 @@ python inference.py --model model.pth --batch_size 1 --mode two_task_training(4)
 ### Modele
 
 - DualUNetPlusPlus: Model definiowany w pliku DualUNetPlusPlus.py, składający się z dwóch sieci UNet++. Model działa w dwóch etapach: pierwszy UNet++ przetwarza dane wejściowe, a jego wyniki są łączone z oryginalnymi danymi wejściowymi i przekazywane do drugiego UNet++, który generuje ostateczne wyniki segmentacji.
-- QuadUNetPlusPlus: Model definiowany w pliku QuadUNetPlusPlus.py, który składa się z czterech sieci UNet++. Model estymuje wielu adnotatorów jednocześnie.
 
 ### Wymagania systemowe
 
