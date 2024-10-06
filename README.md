@@ -5,7 +5,26 @@ Ten projekt stanowi rozwiązanie do segmentacji obrazów plemników z uwzględni
 
 # O pracy magisterskiej
 
-Praca magisterska skupia się na problemie zaszumionych etykiet, które powstają na skutek subiektywnych decyzji ekspertów podczas anotacji obrazów medycznych, w tym obrazów plemników. Celem projektu było opracowanie technik umożliwiających skuteczną segmentację w obecności niepewnych etykiet, co jest szczególnie istotne w przypadku takich procedur medycznych jak docytoplazmatyczna iniekcja plemnika (ICSI). W pracy opracowano narzędzia do łączenia wyników wielu adnotatorów oraz zaawansowane metody augmentacji danych, aby poprawić jakość segmentacji plemników w obrazach mikroskopowych. Segmentacja ta pozwala na zmniejszenie subiektywności oceny embriologów i wspomaga ich w codziennej pracy, zwiększając precyzję diagnostyczną.
+Praca magisterska skupia się na problemie zaszumionych etykiet, które powstają na skutek subiektywnych decyzji ekspertów podczas adnotacji obrazów medycznych, w tym obrazów plemników. Celem projektu było opracowanie technik umożliwiających skuteczną segmentację w obecności niepewnych etykiet, co jest szczególnie istotne w przypadku takich procedur medycznych jak docytoplazmatyczna iniekcja plemnika (ICSI). W pracy opracowano narzędzia do łączenia wyników wielu adnotatorów oraz zaawansowane metody augmentacji danych, aby poprawić jakość segmentacji plemników. Segmentacja ta pozwala na zmniejszenie subiektywności oceny adnotatorów.
+
+Jednym z kluczowych elementów tego podejścia było zastosowanie zaawansowanych metod augmentacji. Rysunek poniżej przedstawia zestawienie realnych przypadków z danymi, które zostały zasymulowane przy użyciu opracowanej augmentacji:
+
+![Zestawienie realnych przypadków do symulowanych przez augmentację](images/augmentation_example.png)
+
+*Rysunek: Zestawienie realnych przypadków do symulowanych przez augmentację.*
+
+W celu lepszego zobrazowania podejścia augmentacyjnego, poniżej przedstawiono schemat budowy modułu augmentacji:
+
+![Schemat budowy modułu augmentacji](images/augmentation_method.png)
+
+*Rysunek: Schemat budowy modułu augmentacji.*
+
+Końcowe wyniki segmentacji porównujące model wytrenowany z dedykowaną augmentacją oraz końcowy model z pracy magisterskiej można zobaczyć poniżej. Ilustrują one różnice w jakości wyników segmentacji:
+
+![Przykłady wyników jakościowych](images/example.png)
+
+*Rysunek: Przykłady wyników jakościowych porównujących dwa modele*
+
 
 
 
@@ -18,6 +37,21 @@ Praca magisterska skupia się na problemie zaszumionych etykiet, które powstaj�
 - **basic_augmentation.py** oraz **class_specific_augmentation.py** - moduły zawierające augmentacje stosowane podczas treningu.
 - **gui.py** - plik odpowiedzialny za graficzny interfejs użytkownika (GUI) do trenowania modeli i inferencji.
 - **gui_predict.py** - GUI do przeprowadzania predykcji z dynamicznym ustawianiem progów i obsługą danych referencyjnych (ground truth).
+
+### Interfejs użytkownika
+
+Poniżej przedstawiono interfejsy użytkownika dla trybu treningu oraz inferencji, które zostały zaimplementowane w projekcie:
+
+![Interfejs użytkownika dla trybu treningu](images/training_mode_full_gui.png)
+![Interfejs użytkownika dla trybu inferencji](images/inference_mode_full_gui.png)
+
+*Rysunek: Porównanie interfejsów użytkownika dla trybu treningu i inferencji.*
+
+Dodatkowo, poniżej przedstawiono aplikację do wizualizacji wyników segmentacji oraz oceny jakości predykcji:
+
+![Graficzny interfejs dla embriologów](images/gui_predict_gt_mode.png)
+
+*Rysunek: Aplikacja wizualizacji wyników segmentacji oraz oceny jakości predykcji.*
 
 
 ## Sposób użycia
